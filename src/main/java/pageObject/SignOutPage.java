@@ -8,9 +8,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class SignOutPageObjects extends CommonFunctions {
+public class SignOutPage extends CommonFunctions {
 
-    public SignOutPageObjects(WebDriver driver){
+    public SignOutPage(WebDriver driver){
         PageFactory.initElements(driver, this);
     }
     @FindBy(xpath = "//span[normalize-space()='Account & Lists']")

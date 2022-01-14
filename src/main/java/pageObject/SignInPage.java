@@ -7,12 +7,10 @@ import org.openqa.selenium.devtools.v85.page.Page;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class SignInPageObjects extends CommonFunctions {
+public class SignInPage extends CommonFunctions {
 
-    public SignInPageObjects(WebDriver driver) {PageFactory.initElements(driver, this);}
-
-    @FindBy(xpath = "//span[@id='nav-link-accountList-nav-line-1']")
-    WebElement navigatingToSignInPage;
+    public SignInPage(WebDriver driver) {PageFactory.initElements(driver, this);}
+    HomePage homePage = new HomePage(driver);
 
     @FindBy(id = "ap_email")
     WebElement signInTextFld;
@@ -26,10 +24,12 @@ public class SignInPageObjects extends CommonFunctions {
     @FindBy(id = "signInSubmit")
     WebElement sinInBtn;
 
-    public void signIn(String email, String password)
+    public void signIn() throws Exception
     {
-        navigatingToSignInPage.click();
-        signInTextFld.sendKeys(email);
+        String username = readFromPropertyFile("userName");
+        String password = readFromPropertyFile("password");
+        homePage.navigatingToSignInPage.click();
+        signInTextFld.sendKeys(username);
         continueBtn.click();
         passwordTextFld.sendKeys(password);
         sinInBtn.click();

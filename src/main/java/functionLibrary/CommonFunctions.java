@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.time.Duration;
 import java.util.Properties;
@@ -12,6 +13,8 @@ import java.util.concurrent.TimeUnit;
 public class CommonFunctions {
 
     public static WebDriver driver;
+
+    private static String dataFilePath = new File("src/main/resources/data.properties").getAbsolutePath();
 
     public void openBrowser()
     {
@@ -31,7 +34,7 @@ public class CommonFunctions {
 
     public String readFromPropertyFile(String key) throws Exception{
 
-        FileInputStream inputStream = new FileInputStream("C:\\Users\\Admin\\IdeaProjects\\TopCashbackTask\\src\\main\\resources\\data.properties");
+        FileInputStream inputStream = new FileInputStream(dataFilePath);
         Properties properties = new Properties();
         properties.load(inputStream);
         return properties.get(key).toString();
