@@ -29,7 +29,6 @@ public class HomePage extends CommonFunctions {
         String homepage = readFromPropertyFile("url");
         driver.get(homepage);
         driver.manage().window().maximize();
-        waitWithTime(3);
     }
 
     public void clickAcceptCookies() {cookiesAcceptBtn.click();}

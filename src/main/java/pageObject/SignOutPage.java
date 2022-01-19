@@ -23,7 +23,6 @@ public class SignOutPage extends CommonFunctions {
     {
         Actions actions = new Actions(driver);
         actions.moveToElement(accountsAndListsElement).build().perform();
-        waitWithTime(3);
         signOutBtn.click();
         System.out.println("Signed Out Successfully");
     }

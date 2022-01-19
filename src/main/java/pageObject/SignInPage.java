@@ -24,10 +24,8 @@ public class SignInPage extends CommonFunctions {
     @FindBy(id = "signInSubmit")
     WebElement sinInBtn;
 
-    public void signIn() throws Exception
+    public void signIn(String username, String password) throws Exception
     {
-        String username = readFromPropertyFile("userName");
-        String password = readFromPropertyFile("password");
         homePage.navigatingToSignInPage.click();
         signInTextFld.sendKeys(username);
         continueBtn.click();

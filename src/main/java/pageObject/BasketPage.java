@@ -35,8 +35,7 @@ public class BasketPage extends CommonFunctions {
 
     public void clickOnBasketIcon() {basketIconBtn.click();}
 
-    public void assertSearchResult() throws Exception {
-        String expectedResult = readFromPropertyFile("expectedResult");
+    public void assertSearchResult(String expectedResult) throws Exception {
         String actualResult = resultForFireStick4K.getText();
         Assert.assertTrue(actualResult.contains(expectedResult));
     }
