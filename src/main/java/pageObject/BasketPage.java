@@ -1,13 +1,16 @@
 package pageObject;
 
+import com.google.common.base.Verify;
 import functionLibrary.CommonFunctions;
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import java.io.File;
 
 
 public class BasketPage extends CommonFunctions {
@@ -33,11 +36,15 @@ public class BasketPage extends CommonFunctions {
         wait.until(ExpectedConditions.visibilityOf(suggestionWindowNoThanksBtn)).click();
     }
 
-    public void clickOnBasketIcon() {basketIconBtn.click();}
+    public void clickOnBasketIcon() {
+        basketIconBtn.click();
+    }
 
     public void assertSearchResult(String expectedResult) throws Exception {
         String actualResult = resultForFireStick4K.getText();
-        Assert.assertTrue(actualResult.contains(expectedResult));
+        //Assert.assertTrue(actualResult.contains(expectedResult));
+        Verify.verify(actualResult.contains(expectedResult));
+
     }
 }
 

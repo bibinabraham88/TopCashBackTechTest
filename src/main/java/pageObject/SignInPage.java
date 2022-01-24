@@ -10,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 public class SignInPage extends CommonFunctions {
 
     public SignInPage(WebDriver driver) {PageFactory.initElements(driver, this);}
+
     HomePage homePage = new HomePage(driver);
 
     @FindBy(id = "ap_email")

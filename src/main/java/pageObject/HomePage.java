@@ -18,7 +18,7 @@ public class HomePage extends CommonFunctions {
     WebElement navigatingToSignInPage;
     @FindBy(xpath = "//span[@class='hm-icon-label']")
     WebElement burgerBtnAll;
-    @FindBy(linkText = "Fire TV")
+    @FindBy(xpath="//*[@id=\"hmenu-content\"]/ul[1]/li[11]/a/div")
     WebElement fireTvSubMenuLink;
     @FindBy(linkText = "All Fire TV devices")
     WebElement allFireTvDevicesLink;
@@ -34,7 +34,9 @@ public class HomePage extends CommonFunctions {
     public void clickAcceptCookies() {cookiesAcceptBtn.click();}
 
     public void navigateToAllFireTvDevices(){
+        waitWithTime(2);
         burgerBtnAll.click();  //click on burger 'All' button
+        waitWithTime(1);
         fireTvSubMenuLink.click();  //click on 'Fire TV' Sub-Menu 'Digital Content and Devices
         allFireTvDevicesLink.click(); //click on 'All Fire Devices' from the sub-menu 'Watch and Play'
         fireStick4kItemLink.click(); //Click on the 'Fire TV Stick 4K with Alexa Voice Remote' the actual product to be selected
