@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 
 public class BasketPage extends CommonFunctions {
@@ -34,6 +35,7 @@ public class BasketPage extends CommonFunctions {
     public void clickOnNoThanksBtn() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOf(suggestionWindowNoThanksBtn)).click();
+//        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
 
     public void clickOnBasketIcon() {

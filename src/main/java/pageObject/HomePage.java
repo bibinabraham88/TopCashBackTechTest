@@ -1,10 +1,13 @@
 package pageObject;
 
 import functionLibrary.CommonFunctions;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage extends CommonFunctions {
 
@@ -24,6 +27,10 @@ public class HomePage extends CommonFunctions {
     WebElement allFireTvDevicesLink;
     @FindBy(linkText = "Fire TV Stick 4K with Alexa Voice Remote (in…")
     WebElement fireStick4kItemLink;
+    @FindBy(xpath = "//div[@id='nav-xshop']/a[3]")
+    WebElement giftIdeaBtn;
+    @FindBy(xpath = "//div[@class='connections']/div/div/a[2]")
+    WebElement menBtnInsideGiftIdeas;
 
     public void goToHomePage() throws Exception {
         String homepage = readFromPropertyFile("url");
@@ -42,6 +49,11 @@ public class HomePage extends CommonFunctions {
         fireStick4kItemLink.click(); //Click on the 'Fire TV Stick 4K with Alexa Voice Remote' the actual product to be selected
     }
 
+    public void navigateToGiftIdeas(){
+        giftIdeaBtn.click();
+        WebDriverWait wait  = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.visibilityOf(menBtnInsideGiftIdeas)).click();
+    }
 
 
 
